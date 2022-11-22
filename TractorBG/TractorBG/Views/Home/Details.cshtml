@@ -1,0 +1,75 @@
+﻿@{
+    ViewBag.Title = "Details";
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+@model TractorBG.Model.itemModel
+
+<!-- breadcrumb-section -->
+	<div class="breadcrumb-section breadcrumb-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center">
+					<div class="breadcrumb-text">
+						<p>See more Details</p>
+						<h1>@Model.item.brand @Model.item.model</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end breadcrumb section -->
+
+	<!-- single product -->
+	<div class="single-product mt-150 mb-150">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-5">
+					<div class="single-product-img">
+						<img src="@Url.Action("GetImage", "Home",new { id =  Model.item.id})" alt="">
+					</div>
+				</div>
+				<div class="col-md-7">
+					<div class="single-product-content">
+						<h3>Brand : @Model.item.brand</h3>
+						<h3>Model : @Model.item.model</h3>
+						<p>@Model.item.description</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end single product -->
+
+	<!-- more products -->
+	<div class="more-products mb-150">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center">
+					<div class="section-title">	
+						<h3><span class="orange-text">Related</span> Products</h3>
+						<p>Here are more products you might like.</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+			@foreach (var item in Model.releatedProducts)
+			{
+				<div class="col-lg-4 col-md-6 text-center">
+					<div class="single-product-item">
+						<div class="product-image">
+							<a href="/Home/Details?id=@item.id"><img src="@Url.Action("GetImage", "Home",new { id =  item.id})" alt=""></a>
+						</div>
+						<h3>@item.brand</h3>
+						<p class="product-price"><span>@item.model</span></p>
+					</div>
+				</div>
+			}
+
+			</div>
+
+			<div class="row" style="color: white">.</div>
+
+		</div>
+	</div>
+	<!-- end more products -->

@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Register";
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+@model TractorBG.Model.loginRegisterModel
+
+<!-- breadcrumb-section -->
+	<div class="breadcrumb-section breadcrumb-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center">
+					<div class="breadcrumb-text">
+						<p>Register into the site</p>
+						<h1>Register</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end breadcrumb section -->
+
+	<div class="contact-form mt-150 mb-150">
+		<center>
+			<form action="/Home/Register" method="post">
+				<p>
+					<input type="text" placeholder="Username" name="model.username" id="model.username">
+					@Html.ValidationMessageFor(model => model.username)
+				</p>
+				<p>
+					<input type="password" placeholder="Password" name="model.password" id="model.password">
+					@Html.ValidationMessageFor(model => model.username)
+				</p>
+				<p><input type="submit" value="Register"></p>
+			</form>
+		</center>	
+	</div>

@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Update User";
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+@model TractorBG.Model.updateUserModel
+
+<!-- breadcrumb-section -->
+	<div class="breadcrumb-section breadcrumb-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center">
+					<div class="breadcrumb-text">
+						<p>Update the desired user</p>
+						<h1>Update User</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end breadcrumb section -->
+
+	<div class="contact-form mt-150 mb-150">
+		<center>
+			<form action="/Home/UpdateUser" method="post">
+
+				<input type="hidden" name="model.id" id="model.id" value="@Model.id"></input>
+
+				<p>
+					<input type="text" placeholder="@Model.username" name="model.username" id="model.username">
+				</p>
+				<p>
+					<input type="password" placeholder="Password" name="model.password" id="model.password">
+				</p>
+				<p>
+					<input type="checkbox" placeholder="@Model.admin" value=1 name="model.admin" id="model.admin">  admin privileges</input>
+				</p>
+				<p><input type="submit" value="Update"></p>
+			</form>
+		</center>	
+	</div>

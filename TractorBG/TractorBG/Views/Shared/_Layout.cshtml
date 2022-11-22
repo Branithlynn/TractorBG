@@ -1,0 +1,158 @@
+﻿@using TractorBG
+<html>
+    <head>
+        <meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
+
+		<title>@ViewBag.Title</title>
+
+		
+		<link rel="shortcut icon" type="image/png" href="~/img/favicon.png">
+		
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+
+		<link rel="stylesheet" href="~/css/all.min.css">
+		<link rel="stylesheet" href="~/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="~/css/owl.carousel.css">
+		<link rel="stylesheet" href="~/css/magnific-popup.css">
+		<link rel="stylesheet" href="~/css/animate.css">
+		<link rel="stylesheet" href="~/css/meanmenu.min.css">
+		<link rel="stylesheet" href="~/css/main.css">
+		<link rel="stylesheet" href="~/css/responsive.css">
+
+	</head>
+
+	<body>
+			<!--PreLoader-->
+			<div class="loader">
+			    <div class="loader-inner">
+			        <div class="circle"></div>
+			    </div>
+			</div>
+			<!--PreLoader Ends-->
+
+			<!-- header -->
+			<div class="top-header-area" id="sticker">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12 col-sm-12 text-center">
+							<div class="main-menu-wrap">
+								<!-- logo -->
+								<div class="site-logo">
+									<a href="/Home/Index">
+										<img src="~/img/logo.png" alt="">
+									</a>
+								</div>
+								<!-- logo -->
+
+								<!-- menu start -->
+								<nav class="main-menu">
+									<ul>
+										<li><a href="/Home/Index">Home</a></li>
+
+										<li><a href="/Home/Contact">Contact</a></li>
+
+										<li><a href="/Home/Shop">Shop</a></li>
+
+										@if(LoggedUser.user != null && LoggedUser.user.admin == 1)
+										{
+											<li><a href="/Home/AdminPanel">Panel</a></li>
+										}
+
+										<!-- tova li otdelq pageovete da sa v sredata -->
+										@if(LoggedUser.user == null)
+										{
+											<li><a href="/Home/Login">Login</a> <a href="/Home/Register">Register</a></li>
+										}
+										else
+										{
+											<li style="color: white">@LoggedUser.user.username <a href="/Home/Logout">Logout</a></li>
+										}
+									</ul>
+								</nav>
+								<div class="mobile-menu"></div>
+								<!-- menu end -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- end header -->
+
+			@RenderBody()
+
+			<!-- footer -->
+			<div class="footer-area">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-4 col-md-6">
+							<div class="footer-box pages">
+								<h2 class="widget-title">Pages</h2>
+								<ul>
+									<li><a href="/Home/Index">Home</a></li>
+
+									<li><a href="/Home/Contact">Contact</a></li>
+
+									<li><a href="/Home/Shop">Shop</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6">
+							<div class="footer-box about-widget">
+								<h2 class="widget-title">About us</h2>
+								<p>This site is a simple catalouge for tractor made with love for the industry and tractor fans.</p>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6">
+							<div class="footer-box get-in-touch">
+								<h2 class="widget-title">Get in Touch</h2>
+								<ul>
+									<li>bul. Peshtersko shose 26</li>
+									<li>tractorbg123@abv.bg</li>
+									<li>+359 886 886 886</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- end footer -->
+
+			<!-- copyright -->
+			<div class="copyright">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-6 col-md-12">
+							<p>Copyrights &copy; 2019 - <a href="https://imransdesign.com/">Imran Hossain</a>,  All Rights Reserved.<br>
+								Distributed By - <a href="https://themewagon.com/">Themewagon</a>
+							</p>
+						</div>
+						<div class="col-lg-6 text-right col-md-12">
+							<div class="social-icons">
+								<ul>
+									<li><a href="https://www.facebook.com/groups/112950795888121" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+									<li><a href="https://www.instagram.com/explore/tags/traktor/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- end copyright -->
+
+
+		<script src="~/js/jquery-1.11.3.min.js"></script>
+		<script src="~/bootstrap/js/bootstrap.min.js"></script>
+		<script src="~/js/jquery.countdown.js"></script>
+		<script src="~/js/jquery.isotope-3.0.6.min.js"></script>
+		<script src="~/js/waypoints.js"></script>
+		<script src="~/js/owl.carousel.min.js"></script>
+		<script src="~/js/jquery.magnific-popup.min.js"></script>
+		<script src="~/js/jquery.meanmenu.min.js"></script>
+		<script src="~/js/sticker.js"></script>
+		<script src="~/js/main.js"></script>
+	</body>
+</html>

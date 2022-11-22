@@ -1,0 +1,67 @@
+﻿@{
+    ViewBag.Title = "Admin Panel";
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+@model TractorBG.Model.adminPanelModel
+
+<!-- breadcrumb-section -->
+<div class="breadcrumb-section breadcrumb-bg">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 offset-lg-2 text-center">
+				<div class="breadcrumb-text">
+					<p>All your functionality in one place</p>
+					<h1>Admin Panel</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end breadcrumb section -->
+
+<!-- products -->
+	<div class="product-section mt-150 mb-150">
+		<div class="container">
+
+			<div class="mb-80" ><a href="/Home/CreateTractor" class="cart-btn"><i class="fas fa-plus"></i>Create Tractor</a></div>
+			<div class="row product-lists">
+				@foreach(var item in Model.tractorList)
+				{
+					<div class="col-lg-4 col-md-6 text-center strawberry">
+						<div class="single-product-item">
+							<div class="product-image">
+								<a href="/Home/Details?id=@item.id"><img src = "@Url.Action("GetImage", "Home",new { id =  item.id})" alt=""></a>
+							</div>
+							<h3>@item.brand</h3>
+							<p class="product-price"><span>@item.model</span></p>
+							<a href="/Home/UpdateTractor?id=@item.id" class="cart-btn"><i class="fas fa-wrench"></i>Update</a>
+							<a href="/Home/DeleteTractor?id=@item.id" class="cart-btn"><i class="fas fa-user-slash"></i>Delete</a>
+						</div>
+					</div>
+				}
+			</div>
+
+			<div class = "mt-80 mb-80"><a href="/Home/CreateUser" class="cart-btn"><i class="fas fa-plus"></i>Create User</a></div>
+			<div class="row product-lists">
+
+				
+				@foreach(var item in Model.userList)
+				{
+					<div class="col-lg-4 col-md-6 text-center strawberry">
+						<div class="single-product-item">
+							<div class="product-image">
+								<img src = "~/img/profile-picture.jpg" alt="">
+							</div>
+							<h3>@item.username</h3>
+							
+							<a href="/Home/UpdateUser?id=@item.id" class="cart-btn"><i class="fas fa-wrench"></i>Update</a>
+							<a href="/Home/DeleteUser?id=@item.id" class="cart-btn"><i class="fas fa-user-slash"></i>Delete</a>
+						</div>
+					</div>
+				}
+			</div>
+		</div>
+	</div>
+	<!-- end products -->
+

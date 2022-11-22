@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Create Tractor";
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+<!-- breadcrumb-section -->
+	<div class="breadcrumb-section breadcrumb-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center">
+					<div class="breadcrumb-text">
+						<p>Create your tractor</p>
+						<h1>Create Tractor</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end breadcrumb section -->
+
+	<div class="contact-form mt-150 mb-150">
+		<center>
+			<form action="/Home/CreateTractor" method="post" enctype="multipart/form-data">
+				<p>
+					<input type="text" placeholder="Brand" name="model.brand" id="model.brand">
+				</p>
+				<p>
+					<input type="text" placeholder="Model" name="model.model" id="model.model">
+				</p>
+				<p>
+					<input type="text" placeholder="Description" name="model.description" id="model.description">
+				</p>
+				<p>
+					<input type="file" name="model.file" id="model.tractor" accept=".png" placeholder="Tractor Photo"></input>
+					<input type="number" min="1950" max="2023" placeholder="Year" name="model.year" id="model.year">
+				</p>
+				<p><input type="submit" value="Create"></p>
+			</form>
+		</center>	
+	</div>
